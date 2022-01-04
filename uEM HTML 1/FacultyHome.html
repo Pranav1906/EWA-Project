@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+response.setHeader("Cache-Control","no-cache");
+response.setHeader("Cache-Control","no-store");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader ("Expires", 0);
+if(session.getAttribute("DName")==null)
+{
+	response.sendRedirect("doctor_login.jsp");
+}
+%>
+<h1>ENTER YOUR DETAILS HERE</h1>
+<br>
+
+<form action="doctor_register?detail=core" method="post">
+	<label>Name:: </label>
+	<input type="text" name="DName">
+	<br>
+	<label>Course:: </label>
+	<select name="DCateg" >
+  	<option value="gas">DSA Teacher</option>
+  	<option value="dental">EWA teacher</option>
+  	<option value="physio">Networking</option>
+  	<option value="brain">DE and CA</option>
+  	<option value="ent">MAths</option>
+  	<option value="liver">English</option>
+  	<option value="heart">Invest management</option>
+  	
+	</select>
+	<br>
+	<label>LLB/Btech/BBA/Bcom:: </label>
+	<input type="text" name="Field">
+	<br>
+	<label>Email:: </label>
+	<input type="text" name="Faculty Mail">
+	<br>
+	<label>Teacher ID:: </label>
+	<input type="number" name="T.ID">
+	<br>
+	<label>Details:: </label>
+	<textarea rows="5" cols="20" name="Detais"></textarea>
+	<br>
+	<button type="submit">Submit</button>
+	
+</form>
+<form action="userLogout">
+	<button type="submit">logout</button>
+	</form>
+</body>
+<style>
+input{
+margin: 10px;
+}
+</style>
+</html>
